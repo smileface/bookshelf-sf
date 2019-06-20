@@ -99,6 +99,11 @@ class Author
         return $this;
     }
 
+    public function getFullName(): ?string
+    {
+        return $this->firstName . ' ' . $this->middleName . ' ' . $this->lastName;
+    }
+
     public function getBiography(): ?string
     {
         return $this->biography;

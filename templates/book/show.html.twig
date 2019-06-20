@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Book {{ book.title }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ book.title }}</h1>
+
+    <h2>Authors ({{ book.author|length }})</h2>
+
+    <ul>
+        {% for author in book.author %}
+            <li>{{ author.fullName }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Genres ({{ book.genre|length }})</h2>
+
+    <ul>
+        {% for genre in book.genre %}
+            <li>{{ genre.name }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

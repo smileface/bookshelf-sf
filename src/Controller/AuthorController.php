@@ -11,6 +11,8 @@ class AuthorController extends AbstractController
 {
     /**
      * @Route("/authors", name="authors")
+     *
+     * @return Response
      */
     public function index(): Response
     {

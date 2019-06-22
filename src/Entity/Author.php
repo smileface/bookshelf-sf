@@ -49,7 +49,7 @@ class Author
     private $deathDate;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Book", mappedBy="author")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Book", mappedBy="authors")
      */
     private $books;
 

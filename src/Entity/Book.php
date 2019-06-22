@@ -39,19 +39,19 @@ class Book
     private $isbn;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="books")
-     */
-    private $genre;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Author", inversedBy="books")
      */
-    private $author;
+    private $authors;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="books")
+     */
+    private $genres;
 
     public function __construct()
     {
-        $this->genre = new ArrayCollection();
-        $this->author = new ArrayCollection();
+        $this->authors = new ArrayCollection();
+        $this->genres = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -108,43 +108,17 @@ class Book
     }
 
     /**
-     * @return Collection|Genre[]
-     */
-    public function getGenre(): Collection
-    {
-        return $this->genre;
-    }
-
-    public function addGenre(Genre $genre): self
-    {
-        if (!$this->genre->contains($genre)) {
-            $this->genre[] = $genre;
-        }
-
-        return $this;
-    }
-
-    public function removeGenre(Genre $genre): self
-    {
-        if ($this->genre->contains($genre)) {
-            $this->genre->removeElement($genre);
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Author[]
      */
-    public function getAuthor(): Collection
+    public function getAuthors(): Collection
     {
-        return $this->author;
+        return $this->authors;
     }
 
     public function addAuthor(Author $author): self
     {
-        if (!$this->author->contains($author)) {
-            $this->author[] = $author;
+        if (!$this->authors->contains($author)) {
+            $this->authors[] = $author;
         }
 
         return $this;
@@ -152,8 +126,34 @@ class Book
 
     public function removeAuthor(Author $author): self
     {
-        if ($this->author->contains($author)) {
-            $this->author->removeElement($author);
+        if ($this->authors->contains($author)) {
+            $this->authors->removeElement($author);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenres(): Collection
+    {
+        return $this->genres;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->genres->contains($genre)) {
+            $this->genres[] = $genre;
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(Genre $genre): self
+    {
+        if ($this->genres->contains($genre)) {
+            $this->genres->removeElement($genre);
         }
 
         return $this;

@@ -29,7 +29,7 @@ class Genre
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Book", mappedBy="Genre")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Book", mappedBy="genres")
      */
     private $books;
 
